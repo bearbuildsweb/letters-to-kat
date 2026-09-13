@@ -1,0 +1,6 @@
+{
+  "name": "Letters to Kat",
+  "description": "A private romantic archive of letters written for Kat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

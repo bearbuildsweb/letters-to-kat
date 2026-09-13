@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+:root {
+  --font-editorial: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-artisanal: 'Cormorant Garamond', 'Newsreader', Georgia, serif;
+  --font-headline: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-typewriter: 'Courier Prime', 'Courier New', monospace;
+  --font-handwriting: 'Caveat', 'Brush Script MT', cursive;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --color-ink: #221D18;
+  --color-ink-soft: #3D352E;
+  --color-ink-muted: #6B6055;
+  --color-rose: #E27B75;
+  --color-sage: #5D7A68;
+  --color-periwinkle: #5D7896;
+  --color-butter: #E5A93C;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #23312B; /* Cozy botanical eucalyptus craft studio surface */
+  color: var(--color-ink);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Artsy Scrapbook Lined & Grid Stationery */
+.scrapbook-pastel-lined {
+  background-color: #FFFDF9;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 31px,
+    rgba(168, 186, 178, 0.38) 32px
+  );
+  background-size: 100% 32px;
+}
+
+.scrapbook-grid-stationery {
+  background-color: #FFFDF9;
+  background-image: 
+    linear-gradient(to right, rgba(160, 180, 195, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(160, 180, 195, 0.22) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.scrapbook-dots-stationery {
+  background-color: #FFFDF9;
+  background-image: radial-gradient(rgba(180, 150, 170, 0.28) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Notebook Margin Line in Soft Pastel Rose - Hidden on mobile viewports */
+.scrapbook-margin-rose {
+  position: relative;
+}
+.scrapbook-margin-rose::before {
+  display: none;
+}
+@media (min-width: 640px) {
+  .scrapbook-margin-rose::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 36px;
+    width: 1.5px;
+    background-color: rgba(226, 123, 117, 0.45);
+    pointer-events: none;
+  }
+}
+
+/* Artsy Colorful Washi Tapes */
+.washi-tape-rose {
+  background: linear-gradient(135deg, rgba(247, 182, 178, 0.88), rgba(243, 163, 158, 0.88));
+  border-top: 1px solid rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(210, 120, 115, 0.5);
+  box-shadow: 0 2px 5px rgba(80, 30, 30, 0.08);
+}
+
+.washi-tape-sage {
+  background: linear-gradient(135deg, rgba(175, 206, 185, 0.88), rgba(155, 192, 167, 0.88));
+  border-top: 1px solid rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(110, 150, 125, 0.5);
+  box-shadow: 0 2px 5px rgba(30, 60, 40, 0.08);
+}
+
+.washi-tape-periwinkle {
+  background: linear-gradient(135deg, rgba(184, 208, 235, 0.88), rgba(162, 192, 224, 0.88));
+  border-top: 1px solid rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(120, 150, 190, 0.5);
+  box-shadow: 0 2px 5px rgba(30, 50, 80, 0.08);
+}
+
+.washi-tape-butter {
+  background: linear-gradient(135deg, rgba(255, 228, 148, 0.9), rgba(248, 215, 118, 0.9));
+  border-top: 1px solid rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(210, 170, 70, 0.5);
+  box-shadow: 0 2px 5px rgba(80, 60, 20, 0.08);
+}
+
+.washi-tape-lavender {
+  background: linear-gradient(135deg, rgba(224, 204, 240, 0.9), rgba(210, 185, 232, 0.9));
+  border-top: 1px solid rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(170, 140, 200, 0.5);
+  box-shadow: 0 2px 5px rgba(60, 30, 80, 0.08);
+}
+
+/* Washi tape serrated / torn edge simulation */
+.washi-tape-edge {
+  clip-path: polygon(
+    0% 3%, 2% 0%, 98% 0%, 100% 3%,
+    100% 97%, 98% 100%, 2% 100%, 0% 97%
+  );
+}
+
+/* Cute Scrapbook Sticker Badges */
+.sticker-pill-rose {
+  background-color: #FEE8E7;
+  color: #C24842;
+  border: 1.5px solid #F3B5B2;
+  box-shadow: 0 2px 4px rgba(220, 100, 95, 0.15);
+}
+
+.sticker-pill-sage {
+  background-color: #EBF4EE;
+  color: #3B684B;
+  border: 1.5px solid #BDDBC6;
+  box-shadow: 0 2px 4px rgba(60, 110, 75, 0.12);
+}
+
+.sticker-pill-butter {
+  background-color: #FEF6DC;
+  color: #946808;
+  border: 1.5px solid #F7DC8D;
+  box-shadow: 0 2px 4px rgba(160, 120, 20, 0.12);
+}
+
+.sticker-pill-periwinkle {
+  background-color: #EEF4FB;
+  color: #335980;
+  border: 1.5px solid #BBD2EC;
+  box-shadow: 0 2px 4px rgba(50, 90, 130, 0.12);
+}
+
+/* Fonts */
+.font-artisanal {
+  font-family: var(--font-artisanal);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-headline {
+  font-family: var(--font-headline);
+}
+
+.font-typewriter {
+  font-family: var(--font-typewriter);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+.font-sans-clean {
+  font-family: var(--font-sans);
+}
+
+/* Custom hidden scrollbar for horizontal date navigation */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth motion respect */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
