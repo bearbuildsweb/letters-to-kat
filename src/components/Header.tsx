@@ -1,11 +1,13 @@
 import React from 'react';
 import { JournalConfig } from '../types';
+import { Mail } from 'lucide-react';
 
 interface HeaderProps {
   config: JournalConfig;
+  onReplayIntro?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ config }) => {
+export const Header: React.FC<HeaderProps> = ({ config, onReplayIntro }) => {
   return (
     <header id="journal-header" className="pt-3 sm:pt-5 pb-1 px-3 sm:px-6 max-w-2xl mx-auto text-center">
       {/* Clean, compact scrapbook masthead card with half the previous height */}
@@ -19,6 +21,20 @@ export const Header: React.FC<HeaderProps> = ({ config }) => {
           >
             for kat ♡
           </div>
+
+          {/* Replay Intro button */}
+          {onReplayIntro && (
+            <button
+              id="replay-intro-btn"
+              onClick={onReplayIntro}
+              className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 text-[#A8988D] hover:text-[#C93B33] transition-colors p-1.5 rounded-full hover:bg-[#F8EFE9] text-xs font-handwriting flex items-center gap-1 group"
+              title="Replay 'Dear Kat' intro"
+              aria-label="Replay Dear Kat intro"
+            >
+              <Mail className="w-3.5 h-3.5 text-[#BBAAA0] group-hover:text-[#C93B33] transition-colors" />
+              <span className="hidden sm:inline text-[11px] text-[#8C7A6F] group-hover:text-[#C93B33]">intro</span>
+            </button>
+          )}
 
           {/* Main Title: Elegant Serif */}
           <h1

@@ -5,10 +5,13 @@ import { getAvailableLetters, getDefaultLetter } from './utils/date';
 import { Header } from './components/Header';
 import { DateNavigation } from './components/DateNavigation';
 import { LetterView } from './components/LetterView';
+import { Preloader } from './components/Preloader';
 import { Letter } from './types';
 import { BookOpen } from 'lucide-react';
 
 export default function App() {
+  const [showPreloader, setShowPreloader] = useState(true);
+
   // 1. Filter out any future letters so they remain strictly hidden
   const availableLetters = useMemo(() => {
     return getAvailableLetters(allLetters);
@@ -85,6 +88,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F3F6F4] scrapbook-dot-grid text-[#26201A] py-0 sm:py-6 md:py-10 px-0 sm:px-4 md:px-6 flex flex-col justify-between selection:bg-[#FDD8D5] selection:text-[#93302B]">
+      {/* Artisanal Preloader inspired by romantic stationery and wanderer postage stamp */}
+      {showPreloader && (
+        <Preloader onComplete={() => setShowPreloader(false)} />
+      )}
+
       {/* Artsy Scrapbook Folio / Journal Book Container */}
       <div className="flex-1 max-w-4xl w-full mx-auto bg-[#FFFEFB] border-x sm:border-y sm:border-x border-[#EADFD9] rounded-none sm:rounded-3xl shadow-[0_16px_48px_rgba(40,30,25,0.08),0_2px_8px_rgba(40,30,25,0.04)] relative overflow-hidden">
         {/* Decorative pastel washi tape accent on the desk top-edge */}
@@ -94,7 +102,7 @@ export default function App() {
         />
 
         {/* Header & Ambient Journal Music */}
-        <Header config={journalConfig} />
+        <Header config={journalConfig} onReplayIntro={() => setShowPreloader(true)} />
 
         {/* Horizontal Date Navigation */}
         {availableLetters.length > 0 && (
