@@ -32,7 +32,6 @@ export const Header: React.FC<HeaderProps> = ({ config, onReplayIntro }) => {
               aria-label="Replay Dear Kat intro"
             >
               <Mail className="w-3.5 h-3.5 text-[#BBAAA0] group-hover:text-[#C93B33] transition-colors" />
-              <span className="hidden sm:inline text-[11px] text-[#8C7A6F] group-hover:text-[#C93B33]">intro</span>
             </button>
           )}
 
